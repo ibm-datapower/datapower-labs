@@ -1,0 +1,9 @@
+Place the DataPower .deb or .rpm files in this directory. You need only one
+set of .debs or one set of .rpms.
+
+Name them:
+
+ibm-datapower-image.deb
+ibm-datapower-common.deb
+ibm-datapower-image.rpm
+ibm-datapower-common.rpm
