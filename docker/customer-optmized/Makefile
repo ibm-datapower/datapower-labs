@@ -23,7 +23,7 @@ REGISTRY ?= $(USER)/
 RUNREGISTRY ?= $(USER)/
 RUNREPOSITORY ?= $(RESULTREPOSITORY)
 RUNTAG ?= 0.1
-CONTAINER_NAME ?= customer-optimized-2
+CONTAINER_NAME ?= customer-optimized
 RUNFLAGS ?= --privileged --publish-all
 MAXWAIT ?= 600
 RUNDETACH ?= true
@@ -33,6 +33,7 @@ FROM ?= ubuntu:trusty
 .PHONY: all shell run rm cli gui clean logs tag stop fixate
 
 GENERATEDFILES = datapower/local/server.crt \
+                 datapower/local/server.csr \
                  datapower/local/server.key \
                  datapower/local/foo/server.crt \
                  datapower/local/foo/server.key \
@@ -214,7 +215,7 @@ $(foreach user,$(DPUSERS),$(eval $(call PASSWORD_template,$(user))))
 password: $(foreach user,$(DPUSERS),password-$(user))
 	@echo "**** $@ complete ****"
 
-datapower/local/server.crt datapower/local/server.key datapower/local/foo/server.crt datapower/local/foo/server.key:
+datapower/local/server.crt datapower/local/server.csr datapower/local/server.key datapower/local/foo/server.crt datapower/local/foo/server.key:
 	mkdir -p datapower/local/foo
 	cd datapower/local && rm -f server.crt server.csr server.key
 	cd datapower/local && openssl genrsa -passout pass:$(DPPASS_CRYPTO) -des3 -out server.key 4096
@@ -277,13 +278,13 @@ clean: rm
 .PHONY: cleaner
 cleaner: clean
 	rm -f $(GENERATEDFILES)
-	find datapower/ -type f ! -name evolve.cfg -print0 | xargs -0 --no-run-if-empty rm -f
+	find datapower/ -type f ! -name evolve.cfg -print0 | xargs -0 rm -f || true
 
 # Fix permissions and ownership.
 # If new docker-created root files are present; save them.
 .PHONY: fixate
 fixate:
-	find datapower/ -user root -print0 | xargs -0 --no-run-if-empty sudo chown --no-dereference --reference=.
+	find datapower/ -user root -print0 | xargs -0 --no-run-if-empty sudo chown --no-dereference --reference=. || true
 
 .PHONY: logs
 logs:

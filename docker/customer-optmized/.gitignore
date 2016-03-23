@@ -1,0 +1,5 @@
+bldsrc/*
+!bldsrc/README
+datapower/local
+datapower/config
+!datapower/config/evolve.cfg

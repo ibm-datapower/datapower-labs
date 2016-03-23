@@ -1,0 +1,7 @@
+# Files that don't need to be saved because they're generated at runtime
+datapower/config/autoconfig.cfg
+datapower/config/debug.cfg
+datapower/config/foo/debug.cfg
+datapower/config/foo/loadbalancer-group.cfg
+datapower/config/vbox-inotify-workaround.cfg
+Dockerfile
