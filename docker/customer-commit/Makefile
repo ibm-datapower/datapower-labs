@@ -133,17 +133,17 @@ define PASSWORD_template
 password-$(1):
 	@echo ====== Changing password for user $(1) ======
 	@docker exec -it $(CONTAINER_NAME) /bin/bash -c \
-	  '{ echo $(1); sleep 0.2; \
-             echo "changeme"; sleep 0.2; \
+	  '{ echo $(1); sleep 5; \
+             echo "changeme"; sleep 1.2; \
 	     if [ "$(1)" = "admin" ]; then \
-               echo "top; co; user admin; password"; sleep 0.2; \
-               echo "$$(DPPASS_$(1))"; sleep 0.2; \
-               echo "$$(DPPASS_$(1))"; sleep 0.2; \
-               echo "exit; exit"; sleep 0.2; \
+               echo "top; co; user admin; password"; sleep 1.2; \
+               echo "$$(DPPASS_$(1))"; sleep 1.2; \
+               echo "$$(DPPASS_$(1))"; sleep 1.2; \
+               echo "exit; exit"; sleep 1.2; \
 	     else \
-               echo "$$(DPPASS_$(1))"; sleep 0.2; \
-               echo "$$(DPPASS_$(1))"; sleep 0.2; \
-	     fi ; }\
+               echo "$$(DPPASS_$(1))"; sleep 1.2; \
+               echo "$$(DPPASS_$(1))"; sleep 1.2; \
+	     fi ; sleep 5; }\
 	   | telnet 127.0.0.1 2200'; echo
 endef
 $(foreach user,$(DPUSERS),$(eval $(call PASSWORD_template,$(user))))
