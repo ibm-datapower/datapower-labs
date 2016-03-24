@@ -30,7 +30,7 @@ A more advanced sample, customer-optimized is akin to deb2img and customer-commi
 
 ## Prerequisites
 
-If you previously installed a version of the Docker Engine, make sure that you are now using version 1.8 or 1.9. To see your docker-engine version, run:  ``` docker version ```. For more information about setting up the host environment, refer to [the official documentation](http://www.ibm.com/support/knowledgecenter/SS9H2Y_7.2.0/com.ibm.dp.doc/welcome.html?lang=en)
+If you previously installed a version of the Docker Engine, make sure that you are now using version 1.8 or 1.9. To see your docker-engine version, run:  ``` docker version ```. For more information about setting up the host environment, refer to [the official documentation](http://www.ibm.com/support/knowledgecenter/SS9H2Y_7.5.0/com.ibm.dp.doc/welcome.html?lang=en)
 
 ___
 
