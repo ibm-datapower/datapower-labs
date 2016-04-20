@@ -26,7 +26,7 @@ COPY ibm-datapower-common.rpm ibm-datapower-image.rpm /tmp/
 RUN echo "Installing dependencies" \
     && set -x \
     && yum -y update \
-    && yum -y install ftp://ftp.muug.mb.ca/mirror/fedora/epel/7/x86_64/s/schroot-1.6.5-5.el7.x86_64.rpm \
+    && yum -y install ftp://ftp.muug.mb.ca/mirror/fedora-epel/7/x86_64/s/schroot-1.6.5-5.el7.x86_64.rpm \
     && yum -y install \
           kpartx \
           telnet \
