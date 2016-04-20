@@ -1,6 +1,6 @@
-# DataPower on Docker [[Release Notes]](http://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/4/897/ENUS216-024/index.html&request_locale=en)
-
-## Overview ##
+# DataPower on Docker ![DataPower on Docker Logo](https://sketch.io/render/sk-5717d8f02b1b9.png)
+### [[Release Notes Here]](http://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/4/897/ENUS216-024/index.html&request_locale=en)
+## Overview              
 
 Docker makes it easier to build, manage and run composite applications in a world where there is increasing interest in the benefits of  micro-services architecture, Continuous Deployment and Continuous Integration and DevOps practices. With DataPower on Docker, we can enjoy the usual benefits of Docker containers such as being able to automate the build process of our images from version control artifacts, having immutable images for reproducible builds and running multiple containers per host.
 
