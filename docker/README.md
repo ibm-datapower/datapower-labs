@@ -14,12 +14,16 @@ ___
 
 ### deb2img
 Starting from the IBM DataPower Debian packages (available from PPA), build a license-accepted 'base' image.
+
 [[Debian based image]](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/deb2img)
+
 [[sample Dockerfile]](https://github.com/ibm-datapower/datapower-labs/blob/master/docker/deb2img/Dockerfile)
 
 ### rpm2img
 This is analogous to _**deb2img**_. Starting with the rpm packages (available from PPA), build a license-accepted 'base' image.
+
 [[RPM based image]](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/rpm2img)
+
 [[sample Dockerfile]](https://github.com/ibm-datapower/datapower-labs/blob/master/docker/rpm2img/Dockerfile)
 ### customer-commit
 Starting from a DataPower base image, demonstrate how to add intrinsic DataPower artifacts (for example: crypto-material, users, passwords).
