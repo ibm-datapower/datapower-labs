@@ -12,30 +12,28 @@ ___
 
 ## The projects include:
 
-### deb2img
+### [deb2img](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/deb2img)
 Starting from the IBM DataPower Debian packages (available from PPA), build a license-accepted 'base' image.
 
-[[Debian based image]](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/deb2img)
 [[sample Dockerfile]](https://github.com/ibm-datapower/datapower-labs/blob/master/docker/deb2img/Dockerfile)
 
-### rpm2img
+### [rpm2img](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/rpm2img)
 This is analogous to _**deb2img**_. Starting with the rpm packages (available from PPA), build a license-accepted 'base' image.
 
-[[RPM based image]](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/rpm2img)
 [[sample Dockerfile]](https://github.com/ibm-datapower/datapower-labs/blob/master/docker/rpm2img/Dockerfile)
-### customer-commit
+### [customer-commit](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/customer-commit)
 Starting from a DataPower base image, demonstrate how to add intrinsic DataPower artifacts (for example: crypto-material, users, passwords).
 
-### customer-build
+### [customer-build](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/customer-build)
 Starting from the DataPower base image, demonstrate core development and build workflows such as live editing of Gatewayscript or XSLT in the host, manage DataPower configuration in version control, and consume environment variables.
 
-### customer-optmized
+### [customer-optmized](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/customer-optmized)
 A more advanced sample, customer-optimized is akin to deb2img and customer-commit but is more efficient in how it decides to commit changes to the image, resulting in a smaller image size.
 
 
 ## Prerequisites
 
-If you previously installed a version of the Docker Engine, make sure that you are now using version 1.8 or 1.9. To see your docker-engine version, run:  ``` docker version ```. For more information about setting up the host environment, refer to [the official documentation](http://www.ibm.com/support/knowledgecenter/SS9H2Y_7.5.0/com.ibm.dp.doc/welcome.html?lang=en)
+If you previously installed a version of the Docker Engine, make sure that you are now using version 1.8 or 1.9. To see your docker-engine version, run:  ``` docker version ```.  For more information about DataPower on Docker, refer to [the official documentation](http://www.ibm.com/support/knowledgecenter/SS9H2Y_7.5.0/com.ibm.dp.doc/welcome.html?lang=en)
 
 ___
 
