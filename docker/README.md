@@ -27,7 +27,7 @@ Starting from a DataPower base image, demonstrate how to add intrinsic DataPower
 ### [customer-build](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/customer-build)
 Starting from the DataPower base image, demonstrate core development and build workflows such as live editing of Gatewayscript or XSLT in the host, manage DataPower configuration in version control, and consume environment variables.
 
-### [customer-optmized](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/customer-optimized)
+### [customer-optimized](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/customer-optimized)
 A more advanced sample, customer-optimized is akin to deb2img and customer-commit but is more efficient in how it decides to commit changes to the image, resulting in a smaller image size.
 
 
