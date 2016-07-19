@@ -131,7 +131,7 @@ installrpm: bldsrc/ibm-datapower-image.rpm bldsrc/ibm-datapower-common.rpm $(GEN
 	    /bin/sh -c 'while [ -e /datapower/running ]; do sleep 1; done'
 	docker exec $(CONTAINER_NAME) mkdir -p /datapower/config /datapower/local
 	docker exec $(CONTAINER_NAME) yum -y update
-	docker exec $(CONTAINER_NAME) yum -y install ftp://ftp.muug.mb.ca/mirror/fedora-epel/7/x86_64/s/schroot-1.6.5-5.el7.x86_64.rpm 
+	docker exec $(CONTAINER_NAME) rpm -Uvh 'http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm' 
 	docker exec $(CONTAINER_NAME) yum -y install kpartx telnet net-tools psmisc
 	docker exec $(CONTAINER_NAME) yum -y install /bldsrc/ibm-datapower-image.rpm
 	docker exec $(CONTAINER_NAME) yum -y install /bldsrc/ibm-datapower-common.rpm
