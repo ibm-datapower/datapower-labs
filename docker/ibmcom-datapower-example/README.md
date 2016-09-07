@@ -1,5 +1,5 @@
 # Purpose
-Use the [IBM DataPower Gateway for Docker](https://hub.docker.com/r/ibmcom/datapower/) to demonstrate basic concepts of using the DataPower Gateway in conjunction with a Docker friendly software delivery life cycle.
+Use the [IBM DataPower Gateway for Docker](https://hub.docker.com/r/ibmcom/datapower/) to demonstrate basic concepts of using the DataPower Gateway in conjunction with a Docker friendly software development life cycle.
 
 This is applicable *only* to IBM DataPower Gateway for Docker which was introduced in DataPower v7.5.2. It does *not* apply to the IBM DataPower Gateway for Linux which is delivered as Debian and RPM packages. While the sample application is the same, the DataPower platform is different and the development speed, deployment speed, and Docker SDLC integration is much better when using DataPower for Docker instead of DataPower for Linux.
 
@@ -41,7 +41,7 @@ are all linked Docker containers and run on port 8080.
 
 ## Concepts
 
-The goal of this project is to completely, utterly, and unashamedly embrace the Docker SDLC (Software Delivery Life Cycle). At the same time, it is intended to be an extremely simple example with minimal prerequisites to demonstrate how DataPower may fit into an orchestration environment.
+The goal of this project is to completely, utterly, and unashamedly embrace the Docker SDLC (Software Development Life Cycle). At the same time, it is intended to be an extremely simple example with minimal prerequisites to demonstrate how DataPower may fit into an orchestration environment.
 
 For our orchestrator, we will use a simple Makefile. It has the ability to automate all the actions that we want to demonstrate. For example:
 
