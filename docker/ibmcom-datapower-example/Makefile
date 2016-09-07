@@ -15,15 +15,15 @@
 #
 # A note on naming conventions:
 # * The registry defaults to USER.  Override at will. Add the registry prefix.
-# * The repository defaults to native-customer-build.
-# * The default name for a running container is "native-customer-build".  Override at will,
+# * The repository defaults to ibmcom-datapower-example.
+# * The default name for a running container is "ibmcom-datapower-example".  Override at will,
 #   remember that the name of a container must be unique on this docker engine.
 # * The repository of the committed image is the same as the name of the built image
 # * The tagged image is the same repository, except the tag is "latest". instead
 #   of the value of TAG, which defaults to 0.1.
 #
 # A note on working with multiple containers:
-# * The default container name is "native-customer-build"
+# * The default container name is "ibmcom-datapower-example"
 # * The "CONTAINER_NAME" variable can be specified on make or as an environment
 #   variable.
 # * One option is to have a window for each of several DataPower containers
@@ -61,7 +61,7 @@
 # back-end servers on port 8080.
 #
 # This image can then be run and tested.  Once the image's validity is verified,
-# it can be tagged as native-customer-build:latest for use in the native-customer-build project.
+# it can be tagged as ibmcom-datapower-example:latest for use in the ibmcom-datapower-example project.
 #
 # The point of this step is to enable DataPower development workflows and
 # and release engineering process. This is what allows DataPower docker images
@@ -114,10 +114,10 @@
 # be specified on the rundev or run targets.
 
 BASEREPOSITORY ?= ibmcom/datapower
-RESULTREPOSITORY ?= $(USER)/native-customer-build
+RESULTREPOSITORY ?= $(USER)/ibmcom-datapower-example
 REPOSITORY = $(RESULTREPOSITORY)
 TAG ?= 0.1
-CONTAINER_NAME ?= native-customer-build
+CONTAINER_NAME ?= ibmcom-datapower-example
 NUM_BACKENDS ?= 3
 
 MAXWAIT = 10
