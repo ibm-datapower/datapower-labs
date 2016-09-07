@@ -10,7 +10,7 @@ set -x
 export $(env | grep ^DATAPOWER_ | cut -d= -f1)
 
 # source each of the scriptlets ala run-parts:
-for f in $(find /start -type f)
+for f in $(find /start -type f -name \*.sh ! -name .\*)
 do
   echo "Processing $f"
   . "$f"
