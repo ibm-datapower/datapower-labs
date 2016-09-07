@@ -1,0 +1,11 @@
+# Files that don't need to be saved because they're generated at runtime
+src/drouter/config/debug.cfg
+src/drouter/config/foo/debug.cfg
+src/drouter/config/foo/loadbalancer-group.cfg
+src/drouter/config/vbox-inotify-workaround.cfg
+src/drouter/local/foo/server.crt
+src/drouter/local/foo/server.key
+src/drouter/local/server.crt
+src/drouter/local/server.csr
+src/drouter/local/server.key
+Dockerfile

@@ -2,6 +2,8 @@
 Show how customers would add "intrinsic" artifacts to DataPower within
 an automated process driven by version control artifacts.
 
+NOTICE: This is a legacy example that does not take advantage of DataPower Gateway for Docker. Consider using the [ibmcom-datapower-example](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/ibmcom-datapower-example) instead.
+
 ___
 Examples of DataPower artifacts include keys and certs in cert:
 or sharedcert:, users and passwords, and the like. These are things

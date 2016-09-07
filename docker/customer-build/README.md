@@ -12,6 +12,8 @@ This project demonstrates how one might:
   environment variables and honor the docker run --link flag
 * Build and test new images
 
+NOTICE: This is a legacy example that does not take advantage of DataPower Gateway for Docker. Consider using the [ibmcom-datapower-example](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/ibmcom-datapower-example) instead.
+
 ## Usage
 Files:
 

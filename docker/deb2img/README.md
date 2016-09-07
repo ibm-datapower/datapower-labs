@@ -3,6 +3,8 @@
 Given the DataPower Gateway Debian files, create a Docker Image suitable
 for further DataPower work.
 
+NOTICE: This is a legacy example that does not take advantage of DataPower Gateway for Docker. Consider using the [ibmcom-datapower-example](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/ibmcom-datapower-example) instead.
+
 ## Usage:
 
 0) Meet the documented DataPower Gateway Virtual Edition minimum

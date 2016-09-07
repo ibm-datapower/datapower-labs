@@ -1,5 +1,5 @@
-# DataPower on Docker ![DataPower on Docker Logo](https://sketch.io/render/sk-5717d8f02b1b9.png)
-### [[Release Notes Here]](http://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/4/897/ENUS216-024/index.html&request_locale=en)
+# DataPower and Docker ![DataPower on Docker Logo](https://sketch.io/render/sk-5717d8f02b1b9.png)
+
 ## Overview              
 
 Docker makes it easier to build, manage and run composite applications in a world where there is increasing interest in the benefits of  micro-services architecture, Continuous Deployment and Continuous Integration and DevOps practices. With DataPower on Docker, we can enjoy the usual benefits of Docker containers such as being able to automate the build process of our images from version control artifacts, having immutable images for reproducible builds and running multiple containers per host.
@@ -10,7 +10,17 @@ ___
 ## Introduction
  The DataPower projects in GitHub demonstrate non-definitive, sample workflows with DataPower on Docker that range from quickly building a base image with DataPower firmware, to including externally managed configuration. Other projects demonstrate more advanced techniques to efficiently use the union file system to save disk space when building images.
 
-## The projects include:
+There are two groups of examples in this collection. There are the old examples that use DataPower for Linux inside Docker. These examples were originally developed for DataPower v7.5.0. These examples are still provided because they are useful when DataPower v7.5.2 is not a possibility. Keep in mind however that in nearly every conceivable way DataPower for Docker provides a superior experience to DataPower for Linux running inside Docker.
+
+Beginning with v7.5.2, DataPower is available specifically for Docker and is available on Docker Hub. This newer offering provides much better Docker support and is the recommended starting point for nearly everyone working with the combination of DataPower and Docker.
+
+## The current DataPower for Docker projects include:
+
+### [ibmcom-datapower-example](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/ibmcom-datapower-example)
+
+Starts from `ibmcom/datapower` Docker Hub image and adds all configuration required along the way. This example does in a single simple step what was previously a multi-step, complicated process. It also demonstrates DataPower's new ability to use crypto-material in `local:` and to save secrets as standard configuration.
+
+## The legacy DataPower for Linux on Docker projects include:
 
 ### [deb2img](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/deb2img)
 Starting from the IBM DataPower Debian packages (available from PPA), build a license-accepted 'base' image.
@@ -31,7 +41,7 @@ Starting from the DataPower base image, demonstrate core development and build w
 A more advanced sample, customer-optimized is akin to deb2img and customer-commit but is more efficient in how it decides to commit changes to the image, resulting in a smaller image size.
 
 
-## Prerequisites
+### Prerequisites
 
 If you previously installed a version of the Docker Engine, make sure that you are now using version 1.8 or 1.9. To see your docker-engine version, run:  ``` docker version ```.  For more information about DataPower on Docker, refer to [the official documentation](http://www.ibm.com/support/knowledgecenter/SS9H2Y_7.5.0/com.ibm.dp.doc/welcome.html?lang=en)
 

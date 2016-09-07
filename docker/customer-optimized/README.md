@@ -5,6 +5,8 @@ deb2img and customer-commit combined but is more careful with image commits to
 try to keep the image size as small as possible.
 Such a workflow avoids unnecessarily increasing the size of the image
 
+NOTICE: This is a legacy example that does not take advantage of DataPower Gateway for Docker. Consider using the [ibmcom-datapower-example](https://github.com/ibm-datapower/datapower-labs/tree/master/docker/ibmcom-datapower-example) instead.
+
 ## Usage
 
 Files:
