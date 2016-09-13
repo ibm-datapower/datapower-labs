@@ -180,7 +180,7 @@ endif
 # The args we pass in to rundev have to be equivalent to the directives we put in the Dockerfile.
 # Rundev uses a stock IBM DataPower Gateway docker image as it is provided by IBM.
 # The only additions to that image are those controlled by this project.
-rundev: RUNFLAGS+=-v $(PWD)/src/drouter/config:/drouter/config -v $(PWD)/src/drouter/local:/drouter/local -v $(PWD)/src/start:/start -v $(PWD)/src/start.sh:/start.sh -p 443 $(DP_VBOX_INOTIFY) -e DATAPOWER_ACCEPT_LICENSE=true -e DATAPOWER_WORKDER_THREADS=2 -e DATAPOWER_INTERACTIVE=true -e DP_WEB_MGMT=true -p 9090 -v $(PWD)/src/drouter/webgui/clixform.xsl:/drouter/webgui/clixform.xsl
+rundev: RUNFLAGS+=-v $(PWD)/src/drouter/config:/drouter/config -v $(PWD)/src/drouter/local:/drouter/local -v $(PWD)/src/start:/start -v $(PWD)/src/start.sh:/start.sh -p 443 $(DP_VBOX_INOTIFY) -e DATAPOWER_ACCEPT_LICENSE=true -e DATAPOWER_WORKDER_THREADS=2 -e DATAPOWER_INTERACTIVE=true -e DP_WEB_MGMT=true -p 9090 
 rundev: LISTENPORT=2200
 rundev: REPOSITORY=$(BASEREPOSITORY)
 rundev: TAG=latest
