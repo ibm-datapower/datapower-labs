@@ -129,7 +129,7 @@ BACKEND_CONTAINER_NAMES = $(foreach backend, $(shell seq $(NUM_BACKENDS)), $(CON
 
 .PHONY: all build shell crypto run rundev rm cli gui clean cryptoclean logs tag stop fixate test
 
-all: clean build run test tag
+all: fixate build run test tag
 
 # Make sure a listener is on a port before trying to connect with it
 # Inside the container, check netstat once a second until the TCP
@@ -165,10 +165,22 @@ else
   DP_VBOX_INOTIFY=-e DP_VBOX_INOTIFY=true
 endif
 
+# On Mac, we still use the gnu utils, but they might be called by other names
+ifeq '$(shell uname -s)' 'Darwin'
+  # Homebrew names the gnu utils by prepending 'g'. Note that they must be installed!
+  FIND=gfind
+  SED=gsed
+  XARGS=gxargs
+else
+  FIND=find
+  SED=sed
+  XARGS=xargs
+endif
+
 # The args we pass in to rundev have to be equivalent to the directives we put in the Dockerfile.
 # Rundev uses a stock IBM DataPower Gateway docker image as it is provided by IBM.
 # The only additions to that image are those controlled by this project.
-rundev: RUNFLAGS+=-v $(PWD)/src/drouter/config:/drouter/config -v $(PWD)/src/drouter/local:/drouter/local -v $(PWD)/src/start:/start -v $(PWD)/src/start.sh:/start.sh -p 443 $(DP_VBOX_INOTIFY) -e DATAPOWER_ACCEPT_LICENSE=true -e DATAPOWER_WORKDER_THREADS=2 -e DATAPOWER_INTERACTIVE=true -p 9090
+rundev: RUNFLAGS+=-v $(PWD)/src/drouter/config:/drouter/config -v $(PWD)/src/drouter/local:/drouter/local -v $(PWD)/src/start:/start -v $(PWD)/src/start.sh:/start.sh -p 443 $(DP_VBOX_INOTIFY) -e DATAPOWER_ACCEPT_LICENSE=true -e DATAPOWER_WORKDER_THREADS=2 -e DATAPOWER_INTERACTIVE=true -e DP_WEB_MGMT=true -p 9090 -v $(PWD)/src/drouter/webgui/clixform.xsl:/drouter/webgui/clixform.xsl
 rundev: LISTENPORT=2200
 rundev: REPOSITORY=$(BASEREPOSITORY)
 rundev: TAG=latest
@@ -221,7 +233,7 @@ rm: stop
 	docker rm -f $(BACKEND_CONTAINER_NAMES) || true
 
 clean:
-	rm -f Dockerfile src/drouter/config/foo/loadbalancer-group.cfg src/drouter/config/debug.cfg src/drouter/config/foo/debug.cfg src/drouter/config/vbox-inotify-workaround.cfg
+	rm -f Dockerfile src/drouter/config/foo/loadbalancer-group.cfg src/drouter/config/debug.cfg src/drouter/config/foo/debug.cfg src/drouter/config/vbox-inotify-workaround.cfg src/drouter/config/web-mgmt.cfg
 
 cryptoclean:
 	rm -rf src/drouter/local/server.crt src/drouter/local/server.csr src/drouter/local/server.key src/drouter/local/foo/server.crt src/drouter/local/foo/server.key
@@ -230,8 +242,25 @@ cleaner: clean cryptoclean
 
 # Fix permissions and ownership.
 # If new docker-created root files are present; save them.
-fixate:
-	find src/ -user root -print0 | xargs -0 --no-run-if-empty sudo chown --reference=.
+# Ensure that web-mgmt does not appear in auto-startup.cfg; we want web-mgmt to be completely under the control of the include-config.
+# The same is true for all the other generated config -- under no circumstances should they appear in the standard config files,
+# they should only ever appear in their include-config.
+# Also pull out system name; it's a gratitious change
+fixate: clean
+	$(FIND) src/ -user root -print0 | $(XARGS) -0 --no-run-if-empty sudo chown --reference=.
+	$(SED) -i \
+	  -e '/^web-mgmt$$/,/^exit$$/d' \
+	  -e '/^logging target "debug-log"$$/,/^exit$$/d' \
+	  -e '/^system$$/,/^exit$$/{ /^ *name /d }' \
+	  src/drouter/config/auto-startup.cfg
+	$(SED) -i \
+	  -e '/^logging target "debug-log"$$/,/^exit$$/d' \
+	  -e '/^loadbalancer-group "lbg-backend"$$/,/^exit$$/d' \
+	  src/drouter/config/foo/foo.cfg
+
+.PHONY: diff
+diff: fixate
+	git diff
 
 logs:
 	docker logs $(CONTAINER_NAME) 2>&1
