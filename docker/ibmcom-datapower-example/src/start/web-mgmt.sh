@@ -6,7 +6,6 @@
 
 	web-mgmt
 	  reset
-	  system-read-only
 	  admin enabled
 	  idle-timeout 0
 	exit
@@ -17,7 +16,6 @@
 
 	web-mgmt
 	  admin disabled
-	  system-read-only
 	exit
 	EOF
   fi

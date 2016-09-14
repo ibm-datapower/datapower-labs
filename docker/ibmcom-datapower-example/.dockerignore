@@ -1,0 +1,9 @@
+# Don't build in auto-generated files from dev
+# These files are not in version control,
+# but they might be in the directory as a result of 'rundev'.
+src/drouter/config/debug.cfg
+src/drouter/config/foo/debug.cfg
+src/drouter/config/foo/loadbalancer-group.cfg
+src/drouter/config/reset-password-imp.cfg
+src/drouter/config/vbox-inotify-workaround.cfg
+src/drouter/config/web-mgmt.cfg
