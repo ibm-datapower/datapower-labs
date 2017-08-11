@@ -3,6 +3,8 @@ Use the [IBM DataPower Gateway for Docker](https://hub.docker.com/r/ibmcom/datap
 
 This is applicable *only* to IBM DataPower Gateway for Docker which was introduced in DataPower v7.5.2. It does *not* apply to the IBM DataPower Gateway for Linux which is delivered as Debian and RPM packages. While the sample application is the same, the DataPower platform is different and the development speed, deployment speed, and Docker SDLC integration is much better when using DataPower for Docker instead of DataPower for Linux.
 
+This sample also does not apply to IBM DataPower Gateway v7.6.0 or later. This is because v7.6.0 defaults to a non-root container. This is a great enhancement, but it requires some adjustment to this sample. The author believes that it would be better to instead use `docker-compose` based samples or Kubernetes based samples instead of using the Makefile with `docker` directly.
+
 This project demonstrates how one might:
 
 * Use the DataPower WebGUI as an IDE for DataPower configuration
@@ -62,7 +64,7 @@ A description of selected `Makefile` targets:
   - Used by a builder to build an image
   - What the CI/CD system would do to get the Docker image for this DataPower Gateway
 - `rundev`
-  - run `ibmcom/datapower` as a developer would.
+  - run `ibmcom/datapower:7.5.2` as a developer would.
   - `web-mgmt` is enabled;
   - volumes are used for configuration so that `write mem` or `Save config` inside DataPower cause the correct files to be saved in the source tree.
 - `run`
