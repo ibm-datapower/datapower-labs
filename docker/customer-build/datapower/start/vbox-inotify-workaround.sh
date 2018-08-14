@@ -4,6 +4,10 @@
 # GatewayScript Cache. Note that if we had XSL, we would want
 # to disable caches for that too.
 #
+# If you're running docker then you'd need to get around the
+# DataPower container protections by running as root.
+# One way to do that is to run docker with `---user=root`.
+#
 # [1] https://www.virtualbox.org/ticket/10660
 
 rm -f /datapower/config/vbox-inotify-workaround.cfg
